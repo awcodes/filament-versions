@@ -22,10 +22,17 @@ class FilamentVersionsServiceProvider extends PluginServiceProvider
             ->hasViews();
     }
 
+    public function register(): void
+    {
+        $this->app->singleton('filament-versions-manager', function ($app) {
+            return new \FilamentVersions\FilamentVersionsManager;
+        });
+
+        parent::register();
+    }
+
     public function boot()
     {
-        parent::boot();
-
         Filament::registerRenderHook(
             'sidebar.end',
             fn (): View => view('filament-versions::filament-versions', ['versions' => [
@@ -36,5 +43,7 @@ class FilamentVersionsServiceProvider extends PluginServiceProvider
         );
 
         Livewire::component('filament-versions-widget', FilamentVersionsWidget::class);
+
+        parent::boot();
     }
 }
