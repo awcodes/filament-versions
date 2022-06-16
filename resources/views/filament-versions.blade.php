@@ -4,9 +4,14 @@
 ])
     x-data
     x-show="$store.sidebar.isOpen">
-    <ul class="flex items-center justify-between">
-        <li>Laravel v{{ $versions['laravel'] }}</li>
-        <li>PHP v{{ $versions['php'] }}</li>
-        <li>Filament {{ $versions['filament'] }}</li>
+    <ul class="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <li class="flex-shrink-0">Laravel v{{ $versions['laravel'] }}</li>
+        <li class="flex-shrink-0">PHP v{{ $versions['php'] }}</li>
+        <li class="flex-shrink-0">Filament {{ $versions['filament'] }}</li>
+        @if (FilamentVersions\Facades\FilamentVersions::getItems())
+            @foreach (FilamentVersions\Facades\FilamentVersions::getItems() as $item)
+                <li class="flex-shrink-0">{{ $item['name'] }} {{ $item['version'] }}</li>
+            @endforeach
+        @endif
     </ul>
 </div>

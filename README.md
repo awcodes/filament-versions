@@ -38,3 +38,20 @@ The widget can also be included as a normal Livewire component on any custom pag
 ```php
 <filament-versions-widget />
 ```
+
+## Custom Version Items
+
+You can also add your own versions by simply including the FilamentVersions facade and adding items inside the `boot` method of a ServiceProvider in your app.
+
+```php
+use FilamentVersions\Facades\FilamentVersions;
+
+public function boot()
+{
+    ...
+    FilamentVersions::addItem('Test', 'v1.2.3');
+    FilamentVersions::addItem('App', 'v12.1.82');
+}
+```
+
+The second parameter of addItem() can also except a Closure, but it must return a string.
