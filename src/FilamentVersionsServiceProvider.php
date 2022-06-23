@@ -19,6 +19,7 @@ class FilamentVersionsServiceProvider extends PluginServiceProvider
         $package
             ->name('filament-versions')
             ->hasAssets()
+            ->hasTranslations()
             ->hasViews();
     }
 
