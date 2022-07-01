@@ -5,7 +5,7 @@ $versions = [
     'php' => PHP_VERSION,
 ];
 @endphp
-<x-filament::widget>
+<x-filament::widget class="filament-versions-widget">
     <x-filament::card>
         <x-slot name="header">
             <x-filament::card.heading>

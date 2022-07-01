@@ -1,5 +1,5 @@
 <div @class([
-    'py-3 px-6 mt-auto -mb-6 text-xs border-t',
+    'py-3 px-6 mt-auto -mb-6 text-xs border-t filament-versions-nav-component',
     'dark:border-gray-700' => config('filament.dark_mode'),
 ])
     x-data
