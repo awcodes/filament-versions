@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "dev": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/filament-versions.css --watch",
-    "build": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/filament-versions.css --minify"
+    "dev": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/filament-versions.css --postcss --watch",
+    "build": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/filament-versions.css --postcss --minify"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
