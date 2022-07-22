@@ -1,21 +1,12 @@
 {
   "private": true,
-  "name": "filament-versions",
-  "version": "0.1.0",
-  "description": "A mostly useless package to display framework versions at the bottom of the navigation panel.",
   "scripts": {
-    "dev": "npm run development",
-    "development": "mix",
-    "watch": "mix watch",
-    "watch-poll": "mix watch -- --watch-options-poll=1000",
-    "hot": "mix watch --hot",
-    "prod": "npm run production",
-    "production": "mix --production"
+    "dev": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/filament-versions.css --watch",
+    "build": "npx tailwindcss -i resources/css/plugin.css -o resources/dist/filament-versions.css --minify"
   },
-  "author": "Adam Weston",
-  "license": "MIT",
-  "dependencies": {
-    "laravel-mix": "^6.0.49",
-    "tailwindcss": "^3.1.2"
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.6"
   }
 }
