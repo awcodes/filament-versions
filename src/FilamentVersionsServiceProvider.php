@@ -2,6 +2,7 @@
 
 namespace FilamentVersions;
 
+use FilamentVersions\Facades\FilamentVersions;
 use Livewire\Livewire;
 use Illuminate\View\View;
 use Filament\Facades\Filament;
@@ -25,26 +26,28 @@ class FilamentVersionsServiceProvider extends PluginServiceProvider
 
     public function register(): void
     {
+        parent::register();
+
         $this->app->singleton('filament-versions-manager', function ($app) {
             return new \FilamentVersions\FilamentVersionsManager;
         });
-
-        parent::register();
     }
 
     public function boot()
     {
-        Filament::registerRenderHook(
-            'sidebar.end',
-            fn (): View => view('filament-versions::filament-versions', ['versions' => [
-                'laravel' => \Illuminate\Foundation\Application::VERSION,
-                'filament' => \Composer\InstalledVersions::getPrettyVersion('filament/filament'),
-                'php' => PHP_VERSION,
-            ]]),
-        );
+        parent::boot();
+
+        if (FilamentVersions::hasNavigationView()) {
+            Filament::registerRenderHook(
+                'sidebar.end',
+                fn(): View => view('filament-versions::filament-versions', ['versions' => [
+                    'laravel' => \Illuminate\Foundation\Application::VERSION,
+                    'filament' => \Composer\InstalledVersions::getPrettyVersion('filament/filament'),
+                    'php' => PHP_VERSION,
+                ]]),
+            );
+        }
 
         Livewire::component('filament-versions-widget', FilamentVersionsWidget::class);
-
-        parent::boot();
     }
 }
