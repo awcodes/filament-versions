@@ -39,9 +39,26 @@ The widget can also be included as a normal Livewire component on any custom pag
 <filament-versions-widget />
 ```
 
+## Disabling Navigation View
+
+If you'd like to disable the navigation view and only use the dashboard 
+widget you may do so by using the `registerNavigationView` method on 
+the `FilamentVersions` facade in a service provider's `register` handler.
+
+```php
+use FilamentVersions\Facades\FilamentVersions;
+
+public function register()
+{
+    FilamentVersions::registerNavigationView(false);
+}
+```
+
 ## Custom Version Items
 
-You can also add your own versions by simply including the FilamentVersions facade and adding items inside the `boot` method of a ServiceProvider in your app.
+You can also add your own versions by simply including the 
+`FilamentVersions` facade and adding items inside the `boot` method of a 
+service provider in your app.
 
 ```php
 use FilamentVersions\Facades\FilamentVersions;
