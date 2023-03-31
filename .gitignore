@@ -1,3 +1,4 @@
-/node_modules
-/vendor
-/.npmrc
+node_modules
+vendor
+.idea
+.DS_Store

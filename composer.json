@@ -22,14 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "FilamentVersions\\": "src/",
-            "FilamentVersions\\Database\\Factories\\": "database/factories/",
-            "FilamentVersions\\Database\\Seeders\\": "database/seeders/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "FilamentVersions\\Tests\\": "tests/"
+            "FilamentVersions\\": "src/"
         }
     },
     "extra": {
