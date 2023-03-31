@@ -16,6 +16,10 @@ class FilamentVersionsManager
 
     public function addItem(string $name, string | Closure $version = ''): static
     {
+        if ($version instanceof Closure) {
+            $version = $version();
+        }
+
         $this->items[Str::slug($name)] = [
             'name' => $name,
             'version' => $version,
@@ -24,14 +28,16 @@ class FilamentVersionsManager
         return $this;
     }
 
+    public function registerNavigationView(bool | Closure $condition): static
+    {
+        $this->shouldRegisterNavigationView = $condition;
+
+        return $this;
+    }
+
     public function getItems(): array
     {
         return $this->items;
-    }
-
-    public function registerNavigationView(bool | Closure $condition): bool
-    {
-        return $this->shouldRegisterNavigationView = $condition;
     }
 
     public function hasNavigationView(): bool

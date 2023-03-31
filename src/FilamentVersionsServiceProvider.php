@@ -2,7 +2,7 @@
 
 namespace FilamentVersions;
 
-use FilamentVersions\Facades\FilamentVersions;
+use Composer\InstalledVersions;
 use Livewire\Livewire;
 use Illuminate\View\View;
 use Filament\Facades\Filament;
@@ -11,38 +11,47 @@ use Spatie\LaravelPackageTools\Package;
 
 class FilamentVersionsServiceProvider extends PluginServiceProvider
 {
-    protected array $styles = [
-        'filament-versions-styles' => __DIR__ . '/../resources/dist/filament-versions.css',
-    ];
+    public static string $name = 'filament-versions';
+
+    public static string $version = 'dev';
 
     public function configurePackage(Package $package): void
     {
+        static::$version = InstalledVersions::getVersion('awcodes/filament-versions');
+
         $package
-            ->name('filament-versions')
+            ->name(static::$name)
             ->hasAssets()
             ->hasTranslations()
             ->hasViews();
     }
 
-    public function register(): void
+    protected function getStyles(): array
     {
-        parent::register();
+        return [
+            'filament-versions-styles-' . static::$version => __DIR__.'/../resources/dist/filament-versions.css',
+        ];
+    }
 
-        $this->app->singleton('filament-versions-manager', function ($app) {
-            return new \FilamentVersions\FilamentVersionsManager;
+    public function packageRegistered(): void
+    {
+        parent::packageRegistered();
+
+        $this->app->scoped('filament-versions-manager', function () {
+            return new FilamentVersionsManager;
         });
     }
 
-    public function boot()
+    public function packageBooted(): void
     {
-        parent::boot();
+        parent::packageBooted();
 
-        if (FilamentVersions::hasNavigationView()) {
+        if (app('filament-versions-manager')->hasNavigationView()) {
             Filament::registerRenderHook(
                 'sidebar.end',
                 fn(): View => view('filament-versions::filament-versions', ['versions' => [
-                    'laravel' => \Illuminate\Foundation\Application::VERSION,
-                    'filament' => \Composer\InstalledVersions::getPrettyVersion('filament/filament'),
+                    'laravel' => InstalledVersions::getPrettyVersion('laravel/framework'),
+                    'filament' => InstalledVersions::getPrettyVersion('filament/filament'),
                     'php' => PHP_VERSION,
                 ]]),
             );

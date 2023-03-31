@@ -62,12 +62,12 @@ service provider in your app.
 
 ```php
 use FilamentVersions\Facades\FilamentVersions;
+use Composer\InstalledVersions;
 
 public function boot()
 {
-    ...
-    FilamentVersions::addItem('Test', 'v1.2.3');
     FilamentVersions::addItem('App', 'v12.1.82');
+    FilamentVersions::addItem('Tinker', fn() => InstalledVersions::getPrettyVersion('laravel/tinker'));
 }
 ```
 
