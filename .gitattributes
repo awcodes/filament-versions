@@ -5,5 +5,5 @@
 /images             export-ignore
 /package-lock.json  export-ignore
 /package.json       export-ignore
-/postcss.config.js  export-ignore
+/postcss.config.cjs  export-ignore
 /tailwind.config.js export-ignore

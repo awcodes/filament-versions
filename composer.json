@@ -16,19 +16,19 @@
         }
     ],
     "require": {
-        "php": "^8.0.2",
-        "filament/filament": "^2.0",
-        "spatie/laravel-package-tools": "^1.9.2"
+        "php": "^8.1",
+        "filament/filament": "^3.0",
+        "spatie/laravel-package-tools": "^1.14.2"
     },
     "autoload": {
         "psr-4": {
-            "FilamentVersions\\": "src/"
+            "Awcodes\\FilamentVersions\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "FilamentVersions\\FilamentVersionsServiceProvider"
+                "Awcodes\\FilamentVersions\\FilamentVersionsServiceProvider"
             ]
         }
     },
