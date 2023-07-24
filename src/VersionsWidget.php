@@ -2,6 +2,7 @@
 
 namespace Awcodes\FilamentVersions;
 
+use Awcodes\FilamentVersions\Providers\Contracts\VersionProvider;
 use Filament\Widgets\Widget;
 
 class VersionsWidget extends Widget
@@ -12,10 +13,14 @@ class VersionsWidget extends Widget
 
     public function mount(): void
     {
-        $this->versions = VersionsPlugin::get()->getVersions();
+        $this->versions = collect(VersionsPlugin::get()->getVersions())
+            ->transform(fn (VersionProvider $provider): array => [
+                'name' => $provider->getName(),
+                'version' => $provider->getVersion(),
+            ])->toArray();
     }
 
-    public function getColumnSpan(): int|string|array
+    public function getColumnSpan(): int | string | array
     {
         return VersionsPlugin::get()->getWidgetColumnSpan();
     }

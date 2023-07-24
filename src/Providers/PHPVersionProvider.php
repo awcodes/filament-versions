@@ -3,7 +3,6 @@
 namespace Awcodes\FilamentVersions\Providers;
 
 use Awcodes\FilamentVersions\Providers\Contracts\VersionProvider;
-use Composer\InstalledVersions;
 
 class PHPVersionProvider implements VersionProvider
 {

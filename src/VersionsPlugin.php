@@ -18,34 +18,17 @@ class VersionsPlugin implements Plugin
 
     protected array $items = [];
 
-    protected bool|Closure|null $hasDefaults = null;
+    protected bool | Closure | null $hasDefaults = null;
 
-    protected bool|Closure|null $hasNavigationView = null;
+    protected bool | Closure | null $hasNavigationView = null;
 
-    protected int|string|array|null $widgetColumnSpan = null;
+    protected int | string | array | null $widgetColumnSpan = null;
 
-    protected int|null $widgetSort = null;
+    protected ?int $widgetSort = null;
 
     public function boot(Panel $panel): void
     {
         Livewire::component('filament-versions-widget', VersionsWidget::class);
-
-        if (filament('filament-versions')->shouldHaveNavigationView()) {
-            $panel->renderHook(
-                'sidebar.end',
-                fn(): View => view('filament-versions::sidebar-widget', ['versions' => $this->getVersions()]),
-            );
-        }
-
-        if (
-            filament('filament-versions')->shouldHaveNavigationView() &&
-            filament()->hasTopNavigation()
-        ) {
-            $panel->renderHook(
-                'content.end',
-                fn(): View => view('filament-versions::footer-widget', ['versions' => $this->getVersions()]),
-            );
-        }
     }
 
     public static function get(): static
@@ -63,7 +46,7 @@ class VersionsPlugin implements Plugin
         return $this->evaluate($this->items) ?? [];
     }
 
-    public function getWidgetColumnSpan(): int|string|array
+    public function getWidgetColumnSpan(): int | string | array
     {
         return $this->widgetColumnSpan ?? 1;
     }
@@ -77,7 +60,7 @@ class VersionsPlugin implements Plugin
     {
         $defaults = [];
 
-        if (filament('filament-versions')->shouldHaveDefaults()) {
+        if (static::get()->shouldHaveDefaults()) {
             $defaults = [
                 new LaravelVersionProvider(),
                 new FilamentVersionProvider(),
@@ -91,21 +74,21 @@ class VersionsPlugin implements Plugin
         ];
     }
 
-    public function hasDefaults(bool|Closure|null $condition = true): static
+    public function hasDefaults(bool | Closure | null $condition = true): static
     {
         $this->hasDefaults = $condition;
 
         return $this;
     }
 
-    public function hasNavigationView(bool|Closure $condition = true): static
+    public function hasNavigationView(bool | Closure $condition = true): static
     {
         $this->hasNavigationView = $condition;
 
         return $this;
     }
 
-    public function items(array|Closure $items): static
+    public function items(array | Closure $items): static
     {
         $this->items = $items;
 
@@ -117,7 +100,18 @@ class VersionsPlugin implements Plugin
         return app(static::class);
     }
 
-    public function register(Panel $panel): void {}
+    public function register(Panel $panel): void
+    {
+        $panel->renderHook(
+            'sidebar.end',
+            fn (): View => view('filament-versions::sidebar-widget', ['versions' => $this->getVersions()]),
+        );
+
+        $panel->renderHook(
+            'content.end',
+            fn (): View => view('filament-versions::footer-widget', ['versions' => $this->getVersions()]),
+        );
+    }
 
     public function shouldHaveDefaults(): bool
     {
@@ -129,7 +123,7 @@ class VersionsPlugin implements Plugin
         return $this->evaluate($this->hasNavigationView) ?? true;
     }
 
-    public function widgetColumnSpan(int|string|array $columnSpan): static
+    public function widgetColumnSpan(int | string | array $columnSpan): static
     {
         $this->widgetColumnSpan = $columnSpan;
 

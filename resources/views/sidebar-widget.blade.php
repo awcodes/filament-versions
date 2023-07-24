@@ -1,5 +1,16 @@
+@if (filament('filament-versions')->shouldHaveNavigationView())
+<style>
+    .fi-sidebar-nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .fi-sidebar-nav > ul {
+        padding-block-end: 1.5rem;
+    }
+</style>
 <div
-    class="filament-versions-nav-widget py-3 px-6 mt-auto -mb-6 text-xs text-gray-700 border-t dark:text-gray-300 dark:border-gray-700"
+    class="filament-versions-nav-widget py-3 px-6 mt-auto -mb-6 text-xs text-gray-700 border-t border-gray-950/5 dark:text-gray-300 dark:border-white/20"
     x-data
     @if (filament()->isSidebarCollapsibleOnDesktop() || filament()->isSidebarFullyCollapsibleOnDesktop())
         x-cloak
@@ -8,7 +19,8 @@
 >
     <ul class="flex flex-wrap items-center gap-x-4 gap-y-2">
         @foreach ($versions as $version)
-            <li class="flex-shrink-0">{{ $version->getName() }} {{ str($version->getVersion())->ltrim('v')->prepend('v') }}</li>
+            <li class="flex-shrink-0">{{ str($version->getName())->limit(4, null) }}: {{ str($version->getVersion())->ltrim('v') }}</li>
         @endforeach
     </ul>
 </div>
+@endif

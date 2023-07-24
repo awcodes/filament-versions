@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'title' => 'Framework & Package Versions'
+    'title' => 'Framework & Package Versions',
 ];
