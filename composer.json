@@ -20,6 +20,9 @@
         "filament/filament": "^3.0@beta",
         "spatie/laravel-package-tools": "^1.14.2"
     },
+    "require-dev": {
+        "laravel/pint": "^1.10"
+    },
     "autoload": {
         "psr-4": {
             "Awcodes\\FilamentVersions\\": "src/"
@@ -38,8 +41,5 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "require-dev": {
-        "laravel/pint": "^1.10"
-    }
+    "prefer-stable": true
 }
