@@ -103,12 +103,12 @@ class VersionsPlugin implements Plugin
     public function register(Panel $panel): void
     {
         $panel->renderHook(
-            'sidebar.end',
+            'panels::sidebar.nav.end',
             fn (): View => view('filament-versions::sidebar-widget', ['versions' => $this->getVersions()]),
         );
 
         $panel->renderHook(
-            'content.end',
+            'panels::content.end',
             fn (): View => view('filament-versions::footer-widget', ['versions' => $this->getVersions()]),
         );
     }
