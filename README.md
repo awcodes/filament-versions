@@ -2,7 +2,7 @@
 
 A mostly useless package to display framework versions at the bottom of the Filament Admin navigation panel and an optional widget to do the same in the dashboard or custom pages.
 
-![versions-og](https://github.com/awcodes/filament-versions/assets/3596800/dbc15467-07e8-4835-aa1a-3c282b31c818)
+![versions-og](https://res.cloudinary.com/aw-codes/image/upload/w_1200,f_auto,q_auto/plugins/versions/awcodes-versions.jpg)
 
 ## Installation
 
