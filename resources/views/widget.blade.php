@@ -1,8 +1,8 @@
 <x-filament-widgets::widget class="filament-versions-widget">
-    <x-filament::card>
-        <h2 class="font-bold mb-6">
+    <x-filament::section>
+        <x-slot name="heading">
             {{ __('filament-versions::widget.title') }}
-        </h2>
+        </x-slot>
 
         <dl class="flex flex-wrap items-center text-center gap-y-4">
             @foreach ($versions as $version)
@@ -12,5 +12,5 @@
                 </div>
             @endforeach
         </dl>
-    </x-filament::card>
+    </x-filament::section>
 </x-filament-widgets::widget>

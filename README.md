@@ -12,6 +12,19 @@ Install the package via composer
 composer require awcodes/filament-versions
 ```
 
+In an effort to align with Filament's theming methodology you will need to use a custom theme to use this plugin.
+
+> **Note**
+> If you have not set up a custom theme and are using a Panel follow the instructions in the [Filament Docs](https://filamentphp.com/docs/3.x/panels/themes#creating-a-custom-theme) first.
+
+Add the plugin's views to your `tailwind.config.js` file.
+
+```js
+content: [
+    '<path-to-vendor>/awcodes/filament-versions/resources/**/*.blade.php',
+]
+```
+
 ## Usage
 
 Register the plugin and/or Widget in your Panel provider:
