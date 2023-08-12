@@ -117,7 +117,7 @@ public function panel(Panel $panel): Panel
     return $panel
         ->plugins([
             VersionsPlugin::make()
-                ->hasDefaultItems(false)
+                ->hasDefaults(false)
         ]);
 }
 ```
