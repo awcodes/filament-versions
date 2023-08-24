@@ -25,6 +25,16 @@ content: [
 ]
 ```
 
+Usually, it is `resources/css/filament/admin/tailwind.config.js`
+```js
+content: [
+    './app/Filament/**/*.php',
+    './resources/views/filament/**/*.blade.php',
+    './vendor/filament/**/*.blade.php',
+    './vendor/awcodes/filament-versions/resources/**/*.blade.php',
+]
+```
+
 ## Usage
 
 Register the plugin and/or Widget in your Panel provider:
@@ -100,6 +110,42 @@ public function panel(Panel $panel): Panel
             VersionsPlugin::make()
                 ->items([
                     new MyCustomVersionProvider(),
+                ]),
+        ]);
+}
+```
+
+Or use classes directly
+
+```php
+use Awcodes\FilamentVersions\FilamentVersions\VersionsPlugin;
+use Awcodes\FilamentVersions\Providers\Contracts\VersionProvider;
+use Composer\InstalledVersions;
+ 
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        ->plugins([
+            VersionsPlugin::make()
+                ->items([
+                   new Class implements VersionProvider {
+                       public function getName(): string {
+                           return 'Tinker';
+                       }
+
+                       public function getVersion(): string {
+                           return InstalledVersions::getPrettyVersion('laravel/tinker');
+                       }
+                   },
+                   new Class implements VersionProvider {
+                       public function getName(): string {
+                           return 'LiveWire';
+                       }
+
+                       public function getVersion(): string {
+                           return InstalledVersions::getPrettyVersion('livewire/livewire');
+                       }
+                   },
                 ]),
         ]);
 }
