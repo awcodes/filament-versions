@@ -135,7 +135,7 @@ public function panel(Panel $panel): Panel
         ->plugins([
             VersionsPlugin::make()
                 ->widgetColumnSpan('full')
-                ->widgetOrder(2),
+                ->widgetSort(2),
         ]);
 }
 ```
