@@ -30,8 +30,8 @@ content: [
 Register the plugin and/or Widget in your Panel provider:
 
 ```php
-use Awcodes\FilamentVersions\FilamentVersions\VersionsPlugin;
-use Awcodes\FilamentVersions\FilamentVersions\VersionsWidget;
+use Awcodes\FilamentVersions\VersionsPlugin;
+use Awcodes\FilamentVersions\VersionsWidget;
 
 public function panel(Panel $panel): Panel
 {
@@ -54,7 +54,7 @@ If you'd like to disable the navigation view and only use the dashboard
 widget you may do passing `false` or a Closure to the `hasNavigationView` method.
 
 ```php
-use Awcodes\FilamentVersions\FilamentVersions\VersionsPlugin;
+use Awcodes\FilamentVersions\VersionsPlugin;
 
 public function panel(Panel $panel): Panel
 {
@@ -90,7 +90,7 @@ class MyCustomVersionProvider implements VersionProvider
 Then add the item to the plugin:
 
 ```php
-use Awcodes\FilamentVersions\FilamentVersions\VersionsPlugin;
+use Awcodes\FilamentVersions\VersionsPlugin;
 use App\Filament\VersionProviders\MyCustomVersionProvider;
 
 public function panel(Panel $panel): Panel
@@ -110,7 +110,7 @@ public function panel(Panel $panel): Panel
 You can disable the default items by passing `false` or a Closure to the `hasDefaultItems` method.
 
 ```php
-use Awcodes\FilamentVersions\FilamentVersions\VersionsPlugin;
+use Awcodes\FilamentVersions\VersionsPlugin;
 
 public function panel(Panel $panel): Panel
 {
@@ -127,7 +127,7 @@ public function panel(Panel $panel): Panel
 You can change the column span and order of the widget by setting them on the plugin.
 
 ```php
-use Awcodes\FilamentVersions\FilamentVersions\VersionsPlugin;
+use Awcodes\FilamentVersions\VersionsPlugin;
 
 public function panel(Panel $panel): Panel
 {
@@ -135,7 +135,7 @@ public function panel(Panel $panel): Panel
         ->plugins([
             VersionsPlugin::make()
                 ->widgetColumnSpan('full')
-                ->widgetOrder(2),
+                ->widgetSort(2),
         ]);
 }
 ```
