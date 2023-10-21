@@ -5,6 +5,10 @@
         flex-direction: column;
     }
 
+    .fi-sidebar-header {
+        flex-shrink: 0;
+    }
+
     .fi-sidebar-nav > ul {
         padding-block-end: 1.5rem;
     }
