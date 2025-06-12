@@ -1,15 +1,22 @@
 <?php
 
-namespace Awcodes\FilamentVersions;
+declare(strict_types=1);
 
-use Awcodes\FilamentVersions\Providers\Contracts\VersionProvider;
+namespace Awcodes\Versions;
+
+use Awcodes\Versions\Providers\Contracts\VersionProvider;
 use Filament\Widgets\Widget;
 
 class VersionsWidget extends Widget
 {
     public array $versions = [];
 
-    protected static string $view = 'filament-versions::widget';
+    protected string $view = 'versions::widget';
+
+    public static function getSort(): int
+    {
+        return VersionsPlugin::get()->getWidgetSort();
+    }
 
     public function mount(): void
     {
@@ -20,13 +27,8 @@ class VersionsWidget extends Widget
             ])->toArray();
     }
 
-    public function getColumnSpan(): int | string | array
+    public function getColumnSpan(): int|string|array
     {
         return VersionsPlugin::get()->getWidgetColumnSpan();
-    }
-
-    public static function getSort(): int
-    {
-        return VersionsPlugin::get()->getWidgetSort();
     }
 }

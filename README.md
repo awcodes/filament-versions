@@ -1,8 +1,22 @@
-# Filament Versions
+![versions-og](https://res.cloudinary.com/aw-codes/image/upload/w_1200,f_auto,q_auto/plugins/versions/awcodes-versions.jpg)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/awcodes/filament-versions.svg?style=flat-square)](https://packagist.org/packages/awcodes/filament-badgeable-column)
+[![Total Downloads](https://img.shields.io/packagist/dt/awcodes/filament-badgeable-column.svg?style=flat-square)](https://packagist.org/packages/awcodes/filament-versions)
+
+# Versions
 
 A mostly useless package to display framework versions at the bottom of the Filament Admin navigation panel and an optional widget to do the same in the dashboard or custom pages.
 
-![versions-og](https://res.cloudinary.com/aw-codes/image/upload/w_1200,f_auto,q_auto/plugins/versions/awcodes-versions.jpg)
+## Compatibility
+
+| Package Version | Filament Version |
+|-----------------|------------------|
+| 1.x             | 2.x              |
+| 2.x             | 3.x              |
+| 3.x             | 4.x              |
+
+## Upgrading from v2 to v3
+
+If you are upgrading from version 2 to version 3, you will need to update the namespace anywhere you are using the plugin from `Awcodes\FilamentVersions` to `Awcodes\Versions`.
 
 ## Installation
 
@@ -12,17 +26,13 @@ Install the package via composer
 composer require awcodes/filament-versions
 ```
 
-In an effort to align with Filament's theming methodology you will need to use a custom theme to use this plugin.
+> [!IMPORTANT]
+> If you have not set up a custom theme and are using Filament Panels follow the instructions in the [Filament Docs](https://filamentphp.com/docs/4.x/styling/overview#creating-a-custom-theme) first.
 
-> **Note**
-> If you have not set up a custom theme and are using a Panel follow the instructions in the [Filament Docs](https://filamentphp.com/docs/3.x/panels/themes#creating-a-custom-theme) first.
+After setting up a custom theme add the plugin's views to your theme css file.
 
-Add the plugin's views to your `tailwind.config.js` file.
-
-```js
-content: [
-    '<path-to-vendor>/awcodes/filament-versions/resources/**/*.blade.php',
-]
+```css
+@source '../../../../vendor/awcodes/filament-versions/resources/**/*.blade.php';
 ```
 
 ## Usage
@@ -30,8 +40,8 @@ content: [
 Register the plugin and/or Widget in your Panel provider:
 
 ```php
-use Awcodes\FilamentVersions\VersionsPlugin;
-use Awcodes\FilamentVersions\VersionsWidget;
+use Awcodes\Versions\VersionsPlugin;
+use Awcodes\Versions\VersionsWidget;
 
 public function panel(Panel $panel): Panel
 {
@@ -45,7 +55,7 @@ public function panel(Panel $panel): Panel
 }
 ```
 
-> **Note**
+> [!NOTE]
 > If you are using the `topNavigation` option with your panel the sidebar widget will show up at the bottom of your pages content.
 
 ## Disabling Navigation View
@@ -54,7 +64,7 @@ If you'd like to disable the navigation view and only use the dashboard
 widget you may do passing `false` or a Closure to the `hasNavigationView` method.
 
 ```php
-use Awcodes\FilamentVersions\VersionsPlugin;
+use Awcodes\Versions\VersionsPlugin;
 
 public function panel(Panel $panel): Panel
 {
@@ -71,7 +81,7 @@ public function panel(Panel $panel): Panel
 You can add custom items to the widgets by creating a new class that implements the `VersionProvider` interface.
 
 ```php
-use Awcodes\FilamentVersions\Providers\Contracts\VersionProvider;
+use Awcodes\Versions\Providers\Contracts\VersionProvider;
 
 class MyCustomVersionProvider implements VersionProvider
 {
@@ -90,8 +100,8 @@ class MyCustomVersionProvider implements VersionProvider
 Then add the item to the plugin:
 
 ```php
-use Awcodes\FilamentVersions\VersionsPlugin;
-use App\Filament\VersionProviders\MyCustomVersionProvider;
+use Awcodes\Versions\VersionsPlugin;
+use App\Filament\Providers\MyCustomVersionProvider;
 
 public function panel(Panel $panel): Panel
 {
@@ -110,7 +120,7 @@ public function panel(Panel $panel): Panel
 You can disable the default items by passing `false` or a Closure to the `hasDefaultItems` method.
 
 ```php
-use Awcodes\FilamentVersions\VersionsPlugin;
+use Awcodes\Versions\VersionsPlugin;
 
 public function panel(Panel $panel): Panel
 {
@@ -127,7 +137,7 @@ public function panel(Panel $panel): Panel
 You can change the column span and order of the widget by setting them on the plugin.
 
 ```php
-use Awcodes\FilamentVersions\VersionsPlugin;
+use Awcodes\Versions\VersionsPlugin;
 
 public function panel(Panel $panel): Panel
 {
@@ -139,7 +149,6 @@ public function panel(Panel $panel): Panel
         ]);
 }
 ```
-
 
 ## Changelog
 

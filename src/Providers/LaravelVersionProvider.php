@@ -1,8 +1,10 @@
 <?php
 
-namespace Awcodes\FilamentVersions\Providers;
+declare(strict_types=1);
 
-use Awcodes\FilamentVersions\Providers\Contracts\VersionProvider;
+namespace Awcodes\Versions\Providers;
+
+use Awcodes\Versions\Providers\Contracts\VersionProvider;
 use Composer\InstalledVersions;
 
 class LaravelVersionProvider implements VersionProvider

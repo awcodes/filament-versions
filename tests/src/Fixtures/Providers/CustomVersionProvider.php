@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Awcodes\Versions\Providers;
+namespace Awcodes\Versions\Tests\Fixtures\Providers;
 
 use Awcodes\Versions\Providers\Contracts\VersionProvider;
 
-class PHPVersionProvider implements VersionProvider
+class CustomVersionProvider implements VersionProvider
 {
     public function getName(): string
     {
-        return 'PHP';
+        return 'My Custom Version';
     }
 
     public function getVersion(): string
     {
-        return PHP_VERSION;
+        return '1.0.0';
     }
 }

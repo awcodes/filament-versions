@@ -1,6 +1,8 @@
 <?php
 
-namespace Awcodes\FilamentVersions\Providers\Contracts;
+declare(strict_types=1);
+
+namespace Awcodes\Versions\Providers\Contracts;
 
 interface VersionProvider
 {

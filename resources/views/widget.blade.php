@@ -1,7 +1,7 @@
-<x-filament-widgets::widget class="filament-versions-widget">
+<x-filament-widgets::widget class="versions-widget">
     <x-filament::section>
         <x-slot name="heading">
-            {{ __('filament-versions::widget.title') }}
+            {{ __('versions::widget.title') }}
         </x-slot>
 
         <dl class="flex flex-wrap items-center text-center gap-y-4">

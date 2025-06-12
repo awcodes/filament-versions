@@ -1,4 +1,4 @@
-@if (filament('filament-versions')->shouldHaveNavigationView())
+@if (filament('versions')->shouldHaveNavigationView())
 <style>
     .fi-sidebar {
         display: flex;
@@ -14,7 +14,7 @@
     }
 </style>
 <div
-    class="filament-versions-nav-widget py-3 px-6 mt-auto text-xs text-gray-700 border-t border-gray-950/5 dark:text-gray-300 dark:border-white/20"
+    class="versions-nav-widget py-3 px-6 mt-auto text-xs text-gray-700 border-t border-gray-950/5 dark:text-gray-300 dark:border-white/20"
     x-data
     @if (filament()->isSidebarCollapsibleOnDesktop() || filament()->isSidebarFullyCollapsibleOnDesktop())
         x-cloak

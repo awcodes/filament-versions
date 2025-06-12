@@ -1,16 +1,18 @@
 <?php
 
-namespace Awcodes\FilamentVersions;
+declare(strict_types=1);
+
+namespace Awcodes\Versions;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class FilamentVersionsServiceProvider extends PackageServiceProvider
+class VersionsServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('filament-versions')
+            ->name('versions')
             ->hasAssets()
             ->hasTranslations()
             ->hasViews();
