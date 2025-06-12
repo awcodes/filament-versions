@@ -1,5 +1,5 @@
 ![versions-og](https://res.cloudinary.com/aw-codes/image/upload/w_1200,f_auto,q_auto/plugins/versions/awcodes-versions.jpg)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/awcodes/filament-versions.svg?style=flat-square)](https://packagist.org/packages/awcodes/filament-badgeable-column)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/awcodes/filament-versions.svg?style=flat-square)](https://packagist.org/packages/awcodes/filament-versions)
 [![Total Downloads](https://img.shields.io/packagist/dt/awcodes/filament-badgeable-column.svg?style=flat-square)](https://packagist.org/packages/awcodes/filament-versions)
 
 # Versions
