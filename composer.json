@@ -32,7 +32,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Awcodes\\Versions\\": "src/",
+            "Awcodes\\Versions\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "Awcodes\\Versions\\Tests\\": "tests/src",
             "Awcodes\\Versions\\Tests\\Database\\Factories\\": "tests/database/factories"
         }
