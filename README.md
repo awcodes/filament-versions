@@ -1,10 +1,11 @@
-![versions-og](https://res.cloudinary.com/aw-codes/image/upload/w_1200,f_auto,q_auto/plugins/versions/awcodes-versions.jpg)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/awcodes/filament-versions.svg?style=flat-square)](https://packagist.org/packages/awcodes/filament-versions)
-[![Total Downloads](https://img.shields.io/packagist/dt/awcodes/filament-badgeable-column.svg?style=flat-square)](https://packagist.org/packages/awcodes/filament-versions)
-
 # Versions
 
 A mostly useless package to display framework versions at the bottom of the Filament Admin navigation panel and an optional widget to do the same in the dashboard or custom pages.
+
+[![Latest Version](https://img.shields.io/github/release/awcodes/filament-versions.svg?style=flat-square)](https://github.com/awcodes/filament-versions/releases)
+[![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Total Downloads](https://img.shields.io/packagist/dt/awcodes/filament-versions.svg?style=flat-square)](https://packagist.org/packages/awcodes/filament-versions)
+![GitHub Repo stars](https://img.shields.io/github/stars/awcodes/filament-versions?style=flat-square)
 
 ## Compatibility
 
