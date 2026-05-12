@@ -16,6 +16,8 @@ A mostly useless package to display framework versions at the bottom of the Fila
 | 3.x             | 4.x              |
 | 4.x             | 5.x              |
 
+<!-- [docs_start] -->
+
 ## Installation
 
 Install the package via composer
@@ -147,6 +149,8 @@ public function panel(Panel $panel): Panel
         ]);
 }
 ```
+
+<!-- [docs_end] -->
 
 ## Changelog
 
