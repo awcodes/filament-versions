@@ -14,7 +14,7 @@ A mostly useless package to display framework versions at the bottom of the Fila
 | 1.x             | 2.x              |
 | 2.x             | 3.x              |
 | 3.x             | 4.x              |
-| 4.x             | 5.x              |
+| 4.x             | 4.x & 5.x        |
 
 <!-- [docs_start] -->
 
