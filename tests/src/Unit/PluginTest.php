@@ -69,3 +69,17 @@ it('can register custom items', function () {
         ->and(Filament::getPlugin('versions')->getVersions()[3]->getName())->toBe('My Custom Version')
         ->and(Filament::getPlugin('versions')->getVersions()[3]->getVersion())->toBe('1.0.0');
 });
+
+it('can register custom items from a closure', function () {
+    $this->panel
+        ->plugins([
+            VersionsPlugin::make()
+                ->items(fn (): array => [
+                    new CustomVersionProvider(),
+                ]),
+        ]);
+
+    expect(Filament::getPlugin('versions')->getVersions())->toHaveCount(4)
+        ->and(Filament::getPlugin('versions')->getVersions()[3]->getName())->toBe('My Custom Version')
+        ->and(Filament::getPlugin('versions')->getVersions()[3]->getVersion())->toBe('1.0.0');
+});

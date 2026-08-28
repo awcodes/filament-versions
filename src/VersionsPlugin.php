@@ -19,7 +19,7 @@ class VersionsPlugin implements Plugin
 {
     use EvaluatesClosures;
 
-    protected array $items = [];
+    protected array|Closure $items = [];
 
     protected bool|Closure|null $hasDefaults = null;
 
