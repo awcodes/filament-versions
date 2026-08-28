@@ -117,7 +117,7 @@ public function panel(Panel $panel): Panel
 
 ## Disabling the default items
 
-You can disable the default items by passing `false` or a Closure to the `hasDefaultItems` method.
+You can disable the default items by passing `false` or a Closure to the `hasDefaults` method.
 
 ```php
 use Awcodes\Versions\VersionsPlugin;
