@@ -1,0 +1,9 @@
+version: 1
+
+title: Versions
+
+navigation:
+  - index
+  - installation
+  - usage
+  - providers
