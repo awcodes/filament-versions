@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Awcodes\Versions\Tests\Fixtures\Providers;
+namespace Workbench\App\Filament\Providers;
 
 use Awcodes\Versions\Providers\Contracts\VersionProvider;
 

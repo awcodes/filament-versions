@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Awcodes\Versions\Tests;
 
-use Awcodes\Versions\Tests\Fixtures\Models\User;
-use Awcodes\Versions\Tests\Fixtures\Providers\AdminPanelProvider;
 use Awcodes\Versions\VersionsServiceProvider;
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
@@ -23,6 +21,8 @@ use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\Concerns\WithWorkbench;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
+use Workbench\App\Models\User;
+use Workbench\App\Providers\Filament\AdminPanelProvider;
 
 abstract class TestCase extends Orchestra
 {

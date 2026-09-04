@@ -2,36 +2,48 @@
 
 declare(strict_types=1);
 
-namespace Awcodes\Versions\Tests\Fixtures\Providers;
+namespace Workbench\App\Providers\Filament;
 
-use Exception;
+use Awcodes\Versions\VersionsPlugin;
+use Awcodes\Versions\VersionsWidget;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Pages;
+use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
+use Filament\Support\Assets\Theme;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Workbench\App\Filament\Pages\Auth\Login;
+use Workbench\App\Filament\Providers\CustomVersionProvider;
 
 class AdminPanelProvider extends PanelProvider
 {
-    /** @throws Exception */
     public function panel(Panel $panel): Panel
     {
         return $panel
             ->default()
             ->id('admin')
-            ->path('/admin')
-            ->login()
-            ->resources([])
+            ->path('admin')
+            ->login(Login::class)
+            ->theme(Theme::make('workbench')->relativePublicPath('css/filament/admin/theme.css'))
+            ->plugins([
+                VersionsPlugin::make()
+                    ->items([
+                        new CustomVersionProvider(),
+                    ]),
+            ])
+            ->widgets([
+                VersionsWidget::class,
+            ])
             ->pages([
-                Pages\Dashboard::class,
+                Dashboard::class,
             ])
             ->middleware([
                 EncryptCookies::class,

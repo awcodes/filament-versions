@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Awcodes\Versions\Tests\Fixtures\Providers\CustomVersionProvider;
 use Awcodes\Versions\VersionsPlugin;
 use Awcodes\Versions\VersionsWidget;
 use Filament\Facades\Filament;
+use Workbench\App\Filament\Providers\CustomVersionProvider;
 
 beforeEach(function () {
     $this->panel = Filament::getCurrentOrDefaultPanel();
