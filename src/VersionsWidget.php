@@ -27,7 +27,7 @@ class VersionsWidget extends Widget
             ])->toArray();
     }
 
-    public function getColumnSpan(): int|string|array
+    public function getColumnSpan(): int | string | array
     {
         return VersionsPlugin::get()->getWidgetColumnSpan();
     }
