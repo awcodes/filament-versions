@@ -1,0 +1,19 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Method Awcodes\\Versions\\VersionsPlugin\:\:get\(\) should return static\(Awcodes\\Versions\\VersionsPlugin\) but returns Filament\\Contracts\\Plugin\|Filament\\FilamentManager\.$#'
+			identifier: return.type
+			count: 1
+			path: src/VersionsPlugin.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/VersionsPlugin.php
+
+		-
+			message: '#^Property Awcodes\\Versions\\VersionsWidget\:\:\$view \(view\-string\) does not accept default value of type string\.$#'
+			identifier: property.defaultValue
+			count: 1
+			path: src/VersionsWidget.php

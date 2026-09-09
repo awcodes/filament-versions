@@ -25,7 +25,7 @@ it('can display the widget', function () {
         ->assertSee('Filament');
 });
 
-it('can disable defaults in widget', function (bool|Closure $condition) {
+it('can disable defaults in widget', function (bool | Closure $condition) {
     $this->panel
         ->plugins([
             VersionsPlugin::make()->hasDefaults($condition),

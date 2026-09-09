@@ -19,13 +19,13 @@ class VersionsPlugin implements Plugin
 {
     use EvaluatesClosures;
 
-    protected array|Closure $items = [];
+    protected array | Closure $items = [];
 
-    protected bool|Closure|null $hasDefaults = null;
+    protected bool | Closure | null $hasDefaults = null;
 
-    protected bool|Closure|null $hasNavigationView = null;
+    protected bool | Closure | null $hasNavigationView = null;
 
-    protected int|string|array|null $widgetColumnSpan = null;
+    protected int | string | array | null $widgetColumnSpan = null;
 
     protected ?int $widgetSort = null;
 
@@ -49,7 +49,7 @@ class VersionsPlugin implements Plugin
         return 'versions';
     }
 
-    public function getWidgetColumnSpan(): int|string|array
+    public function getWidgetColumnSpan(): int | string | array
     {
         return $this->widgetColumnSpan ?? 1;
     }
@@ -77,21 +77,21 @@ class VersionsPlugin implements Plugin
         ];
     }
 
-    public function hasDefaults(bool|Closure $condition = true): static
+    public function hasDefaults(bool | Closure $condition = true): static
     {
         $this->hasDefaults = $condition;
 
         return $this;
     }
 
-    public function hasNavigationView(bool|Closure $condition = true): static
+    public function hasNavigationView(bool | Closure $condition = true): static
     {
         $this->hasNavigationView = $condition;
 
         return $this;
     }
 
-    public function items(array|Closure $items): static
+    public function items(array | Closure $items): static
     {
         $this->items = $items;
 
@@ -121,7 +121,7 @@ class VersionsPlugin implements Plugin
         return $this->evaluate($this->hasNavigationView) ?? true;
     }
 
-    public function widgetColumnSpan(int|string|array $columnSpan): static
+    public function widgetColumnSpan(int | string | array $columnSpan): static
     {
         $this->widgetColumnSpan = $columnSpan;
 

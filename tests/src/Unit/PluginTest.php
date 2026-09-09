@@ -32,7 +32,7 @@ it('can register the widget', function () {
     expect(Filament::getWidgets())->toContain('Awcodes\Versions\VersionsWidget');
 });
 
-it('can disable navigation view', function (bool|Closure $condition) {
+it('can disable navigation view', function (bool | Closure $condition) {
     $this->panel
         ->plugins([
             VersionsPlugin::make()->hasNavigationView($condition),
@@ -44,7 +44,7 @@ it('can disable navigation view', function (bool|Closure $condition) {
     fn () => false,
 ]);
 
-it('can disable defaults', function (bool|Closure $condition) {
+it('can disable defaults', function (bool | Closure $condition) {
     $this->panel
         ->plugins([
             VersionsPlugin::make()->hasDefaults($condition),
