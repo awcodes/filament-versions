@@ -5,6 +5,17 @@ description: Install Versions and register its styles with your Filament theme.
 
 # Installation
 
+## Compatibility
+
+| Filament version | Package version |
+|------------------|-----------------|
+| 2.x              | 1.x             |
+| 3.x              | 2.x             |
+| 4.x              | 3.x             |
+| 4.x & 5.x        | 4.x             |
+
+Versions requires PHP 8.2 or later and `filament/filament` — it is a Panels plugin, not a standalone form or table component.
+
 ## Requiring the package
 
 Install the package via Composer:
