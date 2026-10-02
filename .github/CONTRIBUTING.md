@@ -51,4 +51,34 @@ If the project maintainer has any additional requirements, you will find them li
 
 - **Send coherent history** - Make sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please [squash them](https://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages) before submitting.
 
+## Development
+
+Install dependencies:
+
+```bash
+composer install
+```
+
+Start the Workbench application:
+
+```bash
+composer serve
+```
+
+This builds the Workbench assets with npm, so Node.js is required, then serves the app.
+
+Open `/admin` and sign in with `test@example.com` / `password`. The login form is prefilled for convenience.
+
+## Testing
+
+Run the full test suite:
+
+```bash
+composer test
+```
+
+This runs Rector (dry run), Pint (test mode), PHPStan and Pest. Each step can also be run on its own with `composer test:refactor`, `composer test:lint`, `composer test:types` and `composer test:unit`.
+
+To apply formatting and refactoring fixes, run `composer lint` and `composer refactor`.
+
 **Happy coding**!
