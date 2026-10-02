@@ -39,16 +39,48 @@ Before submitting a pull request:
 
 If the project maintainer has any additional requirements, you will find them listed here.
 
-- **[PSR-4 Autoloader Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md)** - The easiest way to apply the conventions is to install [PHP Code Sniffer](https://pear.php.net/package/PHP_CodeSniffer).
+- **Code style** – This repository uses [Laravel Pint](https://laravel.com/docs/pint) with the rules in `pint.json`. Run `composer lint` before you commit.
+
+- **[PSR-4 Autoloader Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md)** – Namespaces and file paths follow PSR-4.
 
 - **Add tests!** - Your patch won't be accepted if it doesn't have tests.
 
-- **Document any change in behaviour** - Make sure the `README.md` and any other relevant documentation are kept up-to-date.
+- **Document any change in behaviour** - Make sure the relevant pages in `docs/` are kept up to date.
 
 - **Consider our release cycle** - We try to follow [SemVer v2.0.0](https://semver.org/). Randomly breaking public APIs is not an option.
 
 - **One pull request per feature** - If you want to do more than one thing, send multiple pull requests.
 
 - **Send coherent history** - Make sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please [squash them](https://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages) before submitting.
+
+## Development
+
+Install dependencies:
+
+```bash
+composer install
+```
+
+Start the Workbench application:
+
+```bash
+composer serve
+```
+
+This builds the Workbench assets with npm, so Node.js is required, then serves the app.
+
+Open `/admin` and sign in with `test@example.com` / `password`. The login form is prefilled for convenience.
+
+## Testing
+
+Run the full test suite:
+
+```bash
+composer test
+```
+
+This runs Rector (dry run), Pint (test mode), PHPStan and Pest. Each step can also be run on its own with `composer test:refactor`, `composer test:lint`, `composer test:types` and `composer test:unit`.
+
+To apply formatting and refactoring fixes, run `composer lint` and `composer refactor`.
 
 **Happy coding**!
