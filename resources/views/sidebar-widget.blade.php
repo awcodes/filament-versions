@@ -15,6 +15,7 @@
 </style>
 <div
     class="versions-nav-widget py-3 px-6 mt-auto text-xs text-gray-700 border-t border-gray-950/5 dark:text-gray-300 dark:border-white/20"
+    data-focus="versions-navigation"
     x-data
     @if (filament()->isSidebarCollapsibleOnDesktop() || filament()->isSidebarFullyCollapsibleOnDesktop())
         x-cloak

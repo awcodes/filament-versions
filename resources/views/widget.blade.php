@@ -1,4 +1,4 @@
-<x-filament-widgets::widget class="versions-widget">
+<x-filament-widgets::widget class="versions-widget" data-focus="versions-widget">
     <x-filament::section>
         <x-slot name="heading">
             {{ __('versions::widget.title') }}
