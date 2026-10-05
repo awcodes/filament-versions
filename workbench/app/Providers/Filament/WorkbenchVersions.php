@@ -20,8 +20,8 @@ class WorkbenchVersions
         return VersionsPlugin::make()
             ->hasDefaults(false)
             ->items([
-                new FixedVersionProvider('Laravel', 'v12.0.0'),
-                new FixedVersionProvider('Filament', 'v4.0.0'),
+                new FixedVersionProvider('Laravel', 'v13.0.0'),
+                new FixedVersionProvider('Filament', 'v5.0.0'),
                 new FixedVersionProvider('PHP', '8.4.0'),
                 new CustomVersionProvider(),
             ]);
