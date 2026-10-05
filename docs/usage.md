@@ -27,12 +27,21 @@ public function panel(Panel $panel): Panel
 
 The two are independent. Registering the plugin alone gives you the navigation line; registering the widget as well adds the dashboard card. The widget still needs the plugin registered, since it reads its list and its layout settings from it.
 
+![The Framework & Package Versions dashboard widget, listing Laravel 13.0.0, Filament 5.0.0, PHP 8.4.0 and My Custom Version 1.0.0 as large numbers with their names beneath](assets/widget-light.png#gh-light-mode-only)
+![The Framework & Package Versions dashboard widget, listing Laravel 13.0.0, Filament 5.0.0, PHP 8.4.0 and My Custom Version 1.0.0 as large numbers with their names beneath](assets/widget-dark.png#gh-dark-mode-only)
+
 ## Where the navigation view appears
 
 With a standard sidebar panel, the versions line renders at the bottom of the sidebar, and it hides along with the sidebar when that is collapsed on desktop.
 
+![A Filament dashboard with the Versions widget showing Laravel 13.0.0, Filament 5.0.0, PHP 8.4.0 and My Custom Version 1.0.0, and the same versions abbreviated in a line at the bottom of the sidebar](assets/navigation-light.png#gh-light-mode-only)
+![A Filament dashboard with the Versions widget showing Laravel 13.0.0, Filament 5.0.0, PHP 8.4.0 and My Custom Version 1.0.0, and the same versions abbreviated in a line at the bottom of the sidebar](assets/navigation-dark.png#gh-dark-mode-only)
+
 > [!NOTE]
 > If your panel uses `topNavigation`, there is no sidebar to sit in, so the line moves to the bottom of the page content instead.
+
+![A Filament panel with top navigation, where the versions line, Laravel 13.0.0, Filament 5.0.0, PHP 8.4.0 and My Custom Version 1.0.0, sits centred below the dashboard content](assets/top-navigation-light.png#gh-light-mode-only)
+![A Filament panel with top navigation, where the versions line, Laravel 13.0.0, Filament 5.0.0, PHP 8.4.0 and My Custom Version 1.0.0, sits centred below the dashboard content](assets/top-navigation-dark.png#gh-dark-mode-only)
 
 ## Disabling the navigation view
 

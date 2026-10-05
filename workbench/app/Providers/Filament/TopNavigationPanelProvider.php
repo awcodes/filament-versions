@@ -21,15 +21,18 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Workbench\App\Filament\Pages\Auth\Login;
 
-class AdminPanelProvider extends PanelProvider
+/**
+ * A second panel with top navigation, where the plugin moves its versions line to the bottom of the page content.
+ */
+class TopNavigationPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->default()
-            ->id('admin')
-            ->path('admin')
+            ->id('top-navigation')
+            ->path('top-navigation')
             ->login(Login::class)
+            ->topNavigation()
             ->theme(Theme::make('workbench')->relativePublicPath('css/filament/admin/theme.css'))
             ->plugins([
                 WorkbenchVersions::plugin(),
